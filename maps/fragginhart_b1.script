@@ -261,7 +261,7 @@ Depot_Gate_construct
 
 	built final
 	{
-        Depot gate controls repaired.
+        wm_announce "Depot gate controls repaired."
         trigger move_Depot_Gate alive_action_Depot_Gate
         setstate Depot_Gate_deadplate invisible
         setstate SecondCovDoor_axisconstruct_n default
