@@ -197,7 +197,7 @@ Depot_Gate
     {		
         playsound sound/movers/misc/garage_door_loop_01.wav looping volume 1024
 		gotomarker Depot_Gate_closed_pos 50 wait
-        wm_announce "Depot_Gate controls enabled."
+        wm_announce "Depot gate controls enabled."
 		stopsound
         setstate button_dead_Depot_Gate invisible
         setstate button2_Depot_Gate invisible
@@ -209,7 +209,7 @@ Depot_Gate
     {
 		playsound sound/movers/misc/garage_door_loop_01.wav looping volume 1024
 		gotomarker Depot_Gate_open_pos 50 wait
-        wm_announce "Depot_Gate controls disabled."
+        wm_announce "Depot gate controls disabled."
 		stopsound
         wait 80
         setstate button_dead_Depot_Gate default
@@ -222,7 +222,7 @@ Depot_Gate
 	{
 		playsound sound/movers/misc/garage_door_loop_01.wav looping volume 1024
 		gotomarker Depot_Gate_open_pos 50 wait
-        wm_announce "Depot_Gate is open."
+        wm_announce "The depot gate is open."
 		stopsound
         setstate button_dead_Depot_Gate invisible
         setstate button1_Depot_Gate invisible
@@ -233,7 +233,7 @@ Depot_Gate
 	{
 		playsound sound/movers/misc/garage_door_loop_01.wav looping volume 1024
 		gotomarker Depot_Gate_closed_pos 50 wait
-        wm_announce "Depot_Gate is closed."
+        wm_announce "The depot gate is closed."
 		stopsound
         setstate button_dead_Depot_Gate invisible
         setstate button2_Depot_Gate invisible
@@ -261,6 +261,7 @@ Depot_Gate_construct
 
 	built final
 	{
+        Depot gate controls repaired.
         trigger move_Depot_Gate alive_action_Depot_Gate
         setstate Depot_Gate_deadplate invisible
         setstate SecondCovDoor_axisconstruct_n default
@@ -278,6 +279,7 @@ Depot_Gate_construct
 	death
 	{
 		//trigger self setup
+        wm_announce "Depot gate controls destroyed."
         trigger move_Depot_Gate dead_action_Depot_Gate
         setstate Depot_Gate_deadplate default
         setstate SecondCovDoor_axisconstruct_n invisible
@@ -330,7 +332,7 @@ Main_Gate
     {		
         playsound sound/movers/misc/garage_door_loop_01.wav looping volume 1024
 		gotomarker Main_Gate_closed_pos 50 wait
-        wm_announce "Main_Gate controls enabled."
+        wm_announce "Main gate controls enabled."
 		stopsound
         setstate button_dead_Main_Gate invisible
         setstate button2_Main_Gate invisible
@@ -343,7 +345,7 @@ Main_Gate
     {
 		playsound sound/movers/misc/garage_door_loop_01.wav looping volume 1024
 		gotomarker Main_Gate_open_pos 50 wait
-        wm_announce "Main_Gate controls disabled."
+        wm_announce "Main gate controls disabled."
 		stopsound
         wait 80
         setstate button_dead_Main_Gate default
@@ -356,7 +358,7 @@ Main_Gate
 	{
 		playsound sound/movers/misc/garage_door_loop_01.wav looping volume 1024
 		gotomarker Main_Gate_open_pos 50 wait
-        wm_announce "Main_Gate is open."
+        wm_announce "The main gate is open."
 		stopsound
         setstate button_dead_Main_Gate invisible
         setstate button1_Main_Gate invisible
@@ -367,7 +369,7 @@ Main_Gate
 	{
 		playsound sound/movers/misc/garage_door_loop_01.wav looping volume 1024
 		gotomarker Main_Gate_closed_pos 50 wait
-        wm_announce "Main_Gate is closed."
+        wm_announce "The main gate is closed."
 		stopsound
         setstate button_dead_Main_Gate invisible
         setstate button2_Main_Gate invisible
@@ -395,6 +397,7 @@ Main_Gate_construct
 
 	built final
 	{
+        wm_announce "Main gate controls repaired"
         trigger move_Main_Gate alive_action_Main_Gate
         setstate Main_Gate_deadplate invisible
         setstate FirstCovDoor_axisconstruct_n default
@@ -413,6 +416,7 @@ Main_Gate_construct
 	death
 	{
 		//trigger self setup
+        wm_announce "Main gate controls destroyed"
         trigger move_Main_Gate dead_action_Main_Gate
         setstate Main_Gate_deadplate invisible
         setstate Main_Gate_construct_toi invisible
