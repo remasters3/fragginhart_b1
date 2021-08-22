@@ -33,10 +33,10 @@ Forwardbunker_flag
             setstate Forwardbunker_wobj invisible
             // setstate Forwardbunker_wobj default
             //flag vo axis 
-            //wm_addteamvoiceannounce 0 "fragginhart_b1_axis_bunker_stop" 
+            //wm_addteamvoiceannounce 0 "fragginhart_axis_bunker_stop" 
 	        wm_teamvoiceannounce 0 "fragginhart_axis_bunker_stop"
             //flag vo allied
-            //wm_addteamvoiceannounce 1 "fragginhart_b1_allies_bunker_capture"
+            //wm_addteamvoiceannounce 1 "fragginhart_allies_bunker_capture"
             wm_teamvoiceannounce 1 "fragginhart_allies_bunker_capture"        
         }
     
@@ -96,10 +96,10 @@ SideWall_axisconstruct_n
 		setstate SideWall_axisconstruct_n_flag invisible
         setstate bit_of_sidewall invisible
         //side entrance axis
-        wm_addteamvoiceannounce 0 "fragginhart_b1_axis_entrance2_stop"
+        wm_addteamvoiceannounce 0 "fragginhart_axis_entrance2_stop"
         wm_teamvoiceannounce 0 "fragginhart_axis_entrance2_stop"
         //side entrance vo allied
-        wm_addteamvoiceannounce 1 "fragginhart_b1_allies_entrance2_destroy"
+        wm_addteamvoiceannounce 1 "fragginhart_allies_entrance2_destroy"
         wm_teamvoiceannounce 1 "fragginhart_allies_entrance2_destroy"
 	}
 
@@ -121,10 +121,10 @@ SideWall_axisconstruct_n
         setstate bit_of_sidewall invisible
         setstate SideWall_axisconstruct_n_toi invisible
         //side entrance axis
-        wm_addteamvoiceannounce 0 "fragginhart_b1_axis_entrance2_stop"
+        wm_addteamvoiceannounce 0 "fragginhart_axis_entrance2_stop"
         wm_teamvoiceannounce 0 "fragginhart_axis_entrance2_defend"
         //side entrance vo allied
-        wm_addteamvoiceannounce 1 "fragginhart_b1_allies_entrance2_destroy"
+        wm_addteamvoiceannounce 1 "fragginhart_allies_entrance2_destroy"
         wm_teamvoiceannounce 1 "fragginhart_allies_entrance2_destroy"
 
 		//wm_announce "Axis Team have built the gate!"
@@ -142,10 +142,10 @@ SideWall_axisconstruct_n
         setstate SideWall_axisconstruct_n_toi invisible
 		wm_announce "Allied have destroyed the side wall!" 
         //side entrance axis
-        wm_removeteamvoiceannounce 0 "fragginhart_b1_axis_entrance2_stop"
+        wm_removeteamvoiceannounce 0 "fragginhart_axis_entrance2_stop"
         wm_teamvoiceannounce 0 "fragginhart_axis_entrance2_destroyed"
         //side entrance vo allied
-        wm_removeteamvoiceannounce 1 "fragginhart_b1_allies_entrance2_destroy"
+        wm_removeteamvoiceannounce 1 "fragginhart_allies_entrance2_destroy"
         wm_teamvoiceannounce 1 "fragginhart_allies_entrance2_destroyed"
 	}
 }
@@ -433,7 +433,7 @@ ramp_alliedconstruct_n
 		trigger self setup
 		constructible_class	2	// 2=Satchel 3=Dyna
         //assualt ramp vo axis 
-        //wm_addteamvoiceannounce 0 "fragginhart_b1_axis_ramp_stop"
+        //wm_addteamvoiceannounce 0 "fragginhart_axis_ramp_stop"
         // wm_teamvoiceannounce 0 "fragginhart_axis_ramp_stop"
         //assualt ramp vo allied
         //wm_addteamvoiceannounce 1 "fragginhart_b1_ramp_construct"
@@ -456,7 +456,7 @@ ramp_alliedconstruct_n
 		setstate ramp_alliedconstruct_n_flag invisible
         setstate bit_of_wall invisible
         //assualt ramp vo axis 
-        //wm_removeteamvoiceannounce 0 "fragginhart_b1_axis_ramp_stop"
+        //wm_removeteamvoiceannounce 0 "fragginhart_axis_ramp_stop"
         // wm_teamvoiceannounce 0 "fragginhart_axis_ramp_constructed"
         //assualt ramp vo allied
         //wm_removeteamvoiceannounce 1 "fragginhart_b1_ramp_construct"
@@ -479,7 +479,7 @@ ramp_alliedconstruct_n
         alertentity ramp_door_left
 		wm_announce "Axis have destroyed the ramp!" 
         //assualt ramp vo axis 
-        //wm_addteamvoiceannounce 0 "fragginhart_b1_axis_ramp_stop"
+        //wm_addteamvoiceannounce 0 "fragginhart_axis_ramp_stop"
         // wm_teamvoiceannounce 0 "fragginhart_axis_ramp_stop"
         //assualt ramp vo allied
         //wm_addteamvoiceannounce 1 "fragginhart_b1_ramp_construct"
