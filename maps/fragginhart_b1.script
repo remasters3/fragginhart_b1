@@ -33,10 +33,10 @@ Forwardbunker_flag
             setstate Forwardbunker_wobj invisible
             // setstate Forwardbunker_wobj default
             //flag vo axis 
-            //wm_addteamvoiceannounce 0 "fragginhart_axis_bunker_stop" 
+            wm_addteamvoiceannounce 0 "fragginhart_axis_bunker_stop" 
 	        wm_teamvoiceannounce 0 "fragginhart_axis_bunker_stop"
             //flag vo allied
-            //wm_addteamvoiceannounce 1 "fragginhart_allies_bunker_capture"
+            wm_addteamvoiceannounce 1 "fragginhart_allies_bunker_capture"
             wm_teamvoiceannounce 1 "fragginhart_allies_bunker_capture"        
         }
     
@@ -434,10 +434,10 @@ ramp_alliedconstruct_n
 		constructible_class	2	// 2=Satchel 3=Dyna
         //assualt ramp vo axis 
         //wm_addteamvoiceannounce 0 "fragginhart_axis_ramp_stop"
-        // wm_teamvoiceannounce 0 "fragginhart_axis_ramp_stop"
+        wm_teamvoiceannounce 0 "fragginhart_axis_ramp_stop"
         //assualt ramp vo allied
         //wm_addteamvoiceannounce 1 "fragginhart_b1_ramp_construct"
-        // wm_teamvoiceannounce 1 "fragginhart_ramp_construct"
+        wm_teamvoiceannounce 1 "fragginhart_ramp_construct"
 
 	}
 
@@ -457,10 +457,10 @@ ramp_alliedconstruct_n
         setstate bit_of_wall invisible
         //assualt ramp vo axis 
         //wm_removeteamvoiceannounce 0 "fragginhart_axis_ramp_stop"
-        // wm_teamvoiceannounce 0 "fragginhart_axis_ramp_constructed"
+        wm_teamvoiceannounce 0 "fragginhart_axis_ramp_constructed"
         //assualt ramp vo allied
         //wm_removeteamvoiceannounce 1 "fragginhart_b1_ramp_construct"
-        // wm_teamvoiceannounce 1 "fragginhart_ramp_constructed"
+        wm_teamvoiceannounce 1 "fragginhart_ramp_constructed"
         alertentity ramp_door_right
         alertentity ramp_door_left
 
@@ -480,10 +480,10 @@ ramp_alliedconstruct_n
 		wm_announce "Axis have destroyed the ramp!" 
         //assualt ramp vo axis 
         //wm_addteamvoiceannounce 0 "fragginhart_axis_ramp_stop"
-        // wm_teamvoiceannounce 0 "fragginhart_axis_ramp_stop"
+        wm_teamvoiceannounce 0 "fragginhart_axis_ramp_stop"
         //assualt ramp vo allied
         //wm_addteamvoiceannounce 1 "fragginhart_b1_ramp_construct"
-        // wm_teamvoiceannounce 1 "fragginhart_ramp_construct"
+        wm_teamvoiceannounce 1 "fragginhart_ramp_construct"
 	}
 }
 
@@ -511,8 +511,8 @@ allied_cp_open
 		wait 1000
 
 		// *----------------------------------- vo ------------------------------------------*
-		// wm_teamvoiceannounce 1 "allies_hq_compost_construct"
-		//wm_addteamvoiceannounce 1 "allies_hq_compost_construct"
+		wm_teamvoiceannounce 1 "allies_hq_compost_construct"
+		wm_addteamvoiceannounce 1 "allies_hq_compost_construct"
 		// *----------------------------------- vo ------------------------------------------*
 	}
 
@@ -561,11 +561,11 @@ allied_cp_open
 
 		wm_announce "Allied Command Post constructed. Spawn time changed. Charge speed increased!"
 		// *----------------------------------- vo ------------------------------------------*
-		//wm_removeteamvoiceannounce 1 "allies_hq_compost_construct"
-		// wm_teamvoiceannounce 1 "allies_hq_compost_constructed"
+		wm_removeteamvoiceannounce 1 "allies_hq_compost_construct"
+		wm_teamvoiceannounce 1 "allies_hq_compost_constructed"
 
-		// wm_teamvoiceannounce 0 "axis_hq_compost_constructed_allies"
-		//wm_addteamvoiceannounce 0 "axis_hq_compost_constructed_allies"
+		wm_teamvoiceannounce 0 "axis_hq_compost_constructed_allies"
+		wm_addteamvoiceannounce 0 "axis_hq_compost_constructed_allies"
 		// *----------------------------------- vo ------------------------------------------*
 	}
 
@@ -583,10 +583,10 @@ allied_cp_open
 
 		wm_announce "Axis team has destroyed the Allied Command Post!"
 		// *----------------------------------- vo ------------------------------------------*
-		// wm_teamvoiceannounce 1 "allies_hq_compost_damaged"
-		//wm_addteamvoiceannounce 1 "allies_hq_compost_construct"
+		wm_teamvoiceannounce 1 "allies_hq_compost_damaged"
+		wm_addteamvoiceannounce 1 "allies_hq_compost_construct"
 
-		//wm_removeteamvoiceannounce 0 "axis_hq_compost_constructed_allies"
+		wm_removeteamvoiceannounce 0 "axis_hq_compost_constructed_allies"
 		// *----------------------------------- vo ------------------------------------------*
 	}
 
@@ -620,8 +620,8 @@ axis_cp_open
 
 		wait 1000
 		// *----------------------------------- vo ------------------------------------------*
-		// wm_teamvoiceannounce 0 "axis_hq_compost_construct"
-		//wm_addteamvoiceannounce 0 "axis_hq_compost_construct"
+		wm_teamvoiceannounce 0 "axis_hq_compost_construct"
+		wm_addteamvoiceannounce 0 "axis_hq_compost_construct"
 		// *----------------------------------- vo ------------------------------------------*
 	}
 
@@ -670,11 +670,11 @@ axis_cp_open
 
 		wm_announce "Axis Command Post constructed. Spawn time changed. Charge speed increased!"
 		// *----------------------------------- vo ------------------------------------------*
-		//wm_removeteamvoiceannounce 0 "axis_hq_compost_construct"
-		// wm_teamvoiceannounce 0 "axis_hq_compost_constructed"
+		wm_removeteamvoiceannounce 0 "axis_hq_compost_construct"
+		wm_teamvoiceannounce 0 "axis_hq_compost_constructed"
 
-		// wm_teamvoiceannounce 1 "allies_hq_compost_constructed_axis"
-		//wm_addteamvoiceannounce 1 "allies_hq_compost_constructed_axis"
+		wm_teamvoiceannounce 1 "allies_hq_compost_constructed_axis"
+		wm_addteamvoiceannounce 1 "allies_hq_compost_constructed_axis"
 		// *----------------------------------- vo ------------------------------------------*
 	}
 
@@ -692,10 +692,10 @@ axis_cp_open
 
 		wm_announce "Allied team has destroyed the Axis Command Post!"
 		// *----------------------------------- vo ------------------------------------------*
-		// wm_teamvoiceannounce 0 "axis_hq_compost_damaged"
-		//wm_addteamvoiceannounce 0 "axis_hq_compost_construct"
+		wm_teamvoiceannounce 0 "axis_hq_compost_damaged"
+		wm_addteamvoiceannounce 0 "axis_hq_compost_construct"
 
-		//wm_removeteamvoiceannounce 1 "allies_hq_compost_constructed_axis"
+		wm_removeteamvoiceannounce 1 "allies_hq_compost_constructed_axis"
 		// *----------------------------------- vo ------------------------------------------*
 	}
 
