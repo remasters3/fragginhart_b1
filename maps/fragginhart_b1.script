@@ -2,15 +2,15 @@ game_manager
 {
 	spawn
 	{
-		wm_axis_respawntime	30
-		wm_allied_respawntime	20
+		wm_axis_respawntime	25
+		wm_allied_respawntime	15
 		wm_set_round_timelimit	20
 		// Stopwatch mode defending team (0=Axis, 1=Allies)
 		wm_set_defending_team	0
 		// Winner on expiration of round timer (0=Axis, 1=Allies, -1=Nobody)
 		wm_setwinner 0
 		wait 500
-		setautospawn "Axis Spawn" 0
+		setautospawn "Forward bunker" 0
 		setautospawn "Allied Spawn" 1
 	}
     
@@ -46,10 +46,8 @@ Forwardbunker_flag
             accum 0 trigger_if_equal 1 Forwardbunker_flag axis_reclaim // Reclaimed from Allies
             accum 0 set 0 // Axis own the flag
             wm_announce "Axis have captured the forward bunker!"
-            setstate Forwardbunker_wobj invisible
-            //setstate Forwardbunker_wobj default
-            // setautospawn "Forward bunker" 0
-            setautospawn "Axis Spawn" 0
+            setstate Forwardbunker_wobj default
+            setautospawn "Forward bunker" 0
 		    setautospawn "Allied Spawn" 1
             wm_teamvoiceannounce 0 "fragginhart_axis_bunker_stop"
             wm_teamvoiceannounce 1 "fragginhart_allies_bunker_capture"
@@ -61,6 +59,8 @@ Forwardbunker_flag
             wm_teamvoiceannounce 0 "fragginhart_axis_bunker_reclaimed"
             wm_teamvoiceannounce 1 "fragginhart_allies_bunker_reclaimed"
             alertentity Forwardbunker_wobj // Switch command map marker 
+            setautospawn "Forward bunker" 0
+		    setautospawn "Allied Spawn" 1
         }
     
     trigger allied_capture // Touched by an allied player   
@@ -68,7 +68,6 @@ Forwardbunker_flag
             accum 0 abort_if_equal 1 // do Allies own flag?
             accum 0 set 1 // Allied own the flag
             wm_announce "Allies have captured the forward bunker!" 
-            setstate Forwardbunker_wobj default
             alertentity Forwardbunker_wobj // Switch command map marker 
             setautospawn "Axis Spawn" 0
 		    setautospawn "Forward bunker" 1
@@ -80,6 +79,8 @@ Forwardbunker_flag
         {
             wm_teamvoiceannounce 0 "fragginhart_axis_bunker_captured"
             wm_teamvoiceannounce 1 "fragginhart_allies_bunker_captured"
+            setautospawn "Axis Spawn" 0
+		    setautospawn "Forward bunker" 1
         }
 }
 
@@ -543,7 +544,7 @@ allied_cp_open
 
 		sethqstatus 1 1			// Landmines team warning message
 		enablespeaker speaker_allied_cp		// Enable morse code sound
-        wm_allied_respawntime	15
+        // wm_allied_respawntime	15
 	}
 
 	buildstart final
@@ -559,7 +560,7 @@ allied_cp_open
 		accum 0 set 1			// Only show the damaged CP model
 		trigger self enable_cp_features		// Increase charge bar times
 
-		wm_announce "Allied Command Post constructed. Spawn time changed. Charge speed increased!"
+		wm_announce "Allied Command Post constructed. Charge speed increased!"
 		// *----------------------------------- vo ------------------------------------------*
 		wm_removeteamvoiceannounce 1 "allies_hq_compost_construct"
 		wm_teamvoiceannounce 1 "allies_hq_compost_constructed"
@@ -652,7 +653,7 @@ axis_cp_open
 
 		sethqstatus 0 1			// Landmines team warning message
 		enablespeaker speaker_axis_cp		// Enable morse code sound
-        wm_axis_respawntime	25
+        // wm_axis_respawntime	25
 	}
 
 	buildstart final
@@ -668,7 +669,7 @@ axis_cp_open
 		accum 0 set 1			// Only show the damaged CP model
 		trigger self enable_cp_features		// Increase charge bar times
 
-		wm_announce "Axis Command Post constructed. Spawn time changed. Charge speed increased!"
+		wm_announce "Axis Command Post constructed. Charge speed increased!"
 		// *----------------------------------- vo ------------------------------------------*
 		wm_removeteamvoiceannounce 0 "axis_hq_compost_construct"
 		wm_teamvoiceannounce 0 "axis_hq_compost_constructed"
