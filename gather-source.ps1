@@ -5,6 +5,6 @@ function gather-source {
 
     foreach ($file in $filelist){
         Remove-Item -Path "$repo\$file"
-        copy-item -Force "$etmain\$file" "$repo\$file"
+        copy-item -Force -Path "$etmain\$file" -DestinationPath "$repo\$file" -Recurse
     }
 }
