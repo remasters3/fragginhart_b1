@@ -4,7 +4,9 @@ function gather-source {
     $filelist = get-content "$repo\file.list"
 
     foreach ($file in $filelist){
-        Remove-Item -Path "$repo\$file"
-        copy-item -Force -Path "$etmain\$file" -DestinationPath "$repo\$file" -Recurse
+        if ($(Test-Path -Path "$localrepo\pk3\$file")){
+            Remove-Item -Path "$repo\$file"
+        }
+        Copy-Item -Path "$etmain\$file" -Destination "$repo\$file" -Recurse
     }
 }

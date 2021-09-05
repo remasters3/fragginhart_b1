@@ -1,0 +1,14 @@
+{
+	map			"fragginhart_b1"
+	longname		"Fragginhart Canyon"
+	type			"wolfmp wolfsw"
+	timelimit		30
+	axisRespawnTime	10
+	alliedRespawnTime	10
+	lmsbriefing		"Fight to the death."
+	briefing		"**Allies must raid Fragginhart Canyon and broadcast the documents back to Allies HQ. **Can the Axis forces hold?"  
+	axiswintext		"Not used"	
+	alliedwintext	"Not used"
+	mapposition_x	550
+	mapposition_y	630
+}
