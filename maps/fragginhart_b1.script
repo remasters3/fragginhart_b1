@@ -12,10 +12,13 @@ game_manager
 		wait 500
 		setautospawn "Forward bunker" 0
 		setautospawn "Allied Spawn" 1
+        alertentity dannyboy
 	}
     
     trigger capture
 	{
+        alertentity dannyboy
+        wait 9000
 		wm_announce "^3Documents transmitted."
 		wm_setwinner 1
 		wait 1500
