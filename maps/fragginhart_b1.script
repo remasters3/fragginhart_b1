@@ -26,6 +26,28 @@ game_manager
 	}
 }
 
+// red_fb_light
+// {
+//     spawn
+//         {
+//         }
+//     trigger light_toggle
+//     {
+//         alertentity red_fb_light
+//     }
+// }
+// 
+// blue_fb_light
+// {
+//     spawn
+//         {
+//         }
+//     trigger light_toggle
+//     {
+//         alertentity blue_fb_light
+//     }
+// }
+
 
 // forward flag
 Forwardbunker_flag 	 
@@ -40,7 +62,9 @@ Forwardbunker_flag
 	        wm_teamvoiceannounce 0 "fragginhart_axis_bunker_stop"
             //flag vo allied
             wm_addteamvoiceannounce 1 "fragginhart_allies_bunker_capture"
-            wm_teamvoiceannounce 1 "fragginhart_allies_bunker_capture"        
+            wm_teamvoiceannounce 1 "fragginhart_allies_bunker_capture"
+            // trigger blue_fb_light light_toggle
+            // trigger red_fb_light light_toggle
         }
     
     trigger axis_capture // Touched by an Axis player 
@@ -50,6 +74,8 @@ Forwardbunker_flag
             accum 0 set 0 // Axis own the flag
             wm_announce "Axis have captured the forward bunker!"
             setstate Forwardbunker_wobj default
+            // trigger blue_fb_light light_toggle
+            // trigger red_fb_light light_toggle
             setautospawn "Forward bunker" 0
 		    setautospawn "Allied Spawn" 1
             wm_teamvoiceannounce 0 "fragginhart_axis_bunker_stop"
@@ -61,7 +87,9 @@ Forwardbunker_flag
         {
             wm_teamvoiceannounce 0 "fragginhart_axis_bunker_reclaimed"
             wm_teamvoiceannounce 1 "fragginhart_allies_bunker_reclaimed"
-            alertentity Forwardbunker_wobj // Switch command map marker 
+            alertentity Forwardbunker_wobj // Switch command map marker
+            // trigger blue_fb_light light_toggle
+            // trigger red_fb_light light_toggle
             setautospawn "Forward bunker" 0
 		    setautospawn "Allied Spawn" 1
         }
@@ -72,6 +100,8 @@ Forwardbunker_flag
             accum 0 set 1 // Allied own the flag
             wm_announce "Allies have captured the forward bunker!" 
             alertentity Forwardbunker_wobj // Switch command map marker 
+            // trigger blue_fb_light light_toggle
+            // trigger red_fb_light light_toggle
             setautospawn "Axis Spawn" 0
 		    setautospawn "Forward bunker" 1
             wm_teamvoiceannounce 0 "fragginhart_axis_bunker_captured"
@@ -82,6 +112,8 @@ Forwardbunker_flag
         {
             wm_teamvoiceannounce 0 "fragginhart_axis_bunker_captured"
             wm_teamvoiceannounce 1 "fragginhart_allies_bunker_captured"
+            // trigger blue_fb_light light_toggle
+            // trigger red_fb_light light_toggle
             setautospawn "Axis Spawn" 0
 		    setautospawn "Forward bunker" 1
         }
