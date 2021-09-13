@@ -213,12 +213,16 @@ move_Depot_Gate
     trigger dead_action_Depot_Gate
 	{	
 		trigger Depot_Gate dead
+        trigger Forwardbunker_flag allied_capture
+        setstate Forwardbunker_flag invisible
         //wait 11000
 	}
 	
     trigger alive_action_Depot_Gate
     {
        trigger Depot_Gate alive
+       setstate Forwardbunker_flag default
+       trigger Forwardbunker_flag axis_capture
     }
 }
 
