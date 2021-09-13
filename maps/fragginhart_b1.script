@@ -527,6 +527,36 @@ ramp_alliedconstruct_n
 	}
 }
 
+
+
+
+
+
+documents
+{
+    spawn
+    {
+	  wait 20
+    }
+    trigger stolen 
+    {
+        setstate documents_CMM invisible 
+	}
+	trigger dropped
+	{
+
+	}
+	trigger returned
+	{
+        setstate documents_CMM default
+	} 
+	trigger captured
+	{
+
+	}
+}
+
+
 the_dropzone
 {
 	death

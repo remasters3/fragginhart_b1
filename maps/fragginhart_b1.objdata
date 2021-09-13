@@ -1,0 +1,17 @@
+wm_mapdescription	allied		"Take the documents to the transmitter!"
+wm_mapdescription	axis		"Don't let allies transmit the documents!"
+wm_mapdescription	neutral		"Allies must transmit the documents. Axis must hold off the Allied attack."
+
+// Axis Objective Descriptions
+wm_objective_axis_desc	1	"Primary Objective:**Defend Side Wall"
+wm_objective_axis_desc	2	"Primary Objective:**Defend The Main Gate"
+wm_objective_axis_desc	3	"Primary Objective:**Defend The Forward Bunker"
+wm_objective_axis_desc	4	"Primary Objective:**Defend The Depo Gate"
+wm_objective_axis_desc	5	"Primary Objective:**Defend The Documents"
+
+// Allied Objective Descriptions
+wm_objective_allied_desc	1	"Primary Objective:**Destroy Side Wall"
+wm_objective_allied_desc	2	"Primary Objective:**Destroy The Main Gate"
+wm_objective_allied_desc	3	"Primary Objective:**Capture The Forward Bunker"
+wm_objective_allied_desc	4	"Primary Objective:**Destroy The Depo Gate"
+wm_objective_allied_desc	5	"Primary Objective:**Take the Documents to the Transmitter"
