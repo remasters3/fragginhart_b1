@@ -9,7 +9,7 @@ game_manager
 		wm_set_defending_team	0
 		// Winner on expiration of round timer (0=Axis, 1=Allies, -1=Nobody)
 		wm_setwinner 0
-		wait 500
+		wait 50
 		setautospawn "Forward bunker" 0
 		setautospawn "Allied Spawn" 1
         alertentity dannyboy
@@ -65,6 +65,10 @@ Forwardbunker_flag
             wm_teamvoiceannounce 1 "fragginhart_allies_bunker_capture"
             // trigger blue_fb_light light_toggle
             // trigger red_fb_light light_toggle
+            wait 500
+            setstate axis_instmap_fb default
+            setstate allies_instmap_fb invisible
+
         }
     
     trigger axis_capture // Touched by an Axis player 
@@ -80,6 +84,8 @@ Forwardbunker_flag
 		    setautospawn "Allied Spawn" 1
             wm_teamvoiceannounce 0 "fragginhart_axis_bunker_stop"
             wm_teamvoiceannounce 1 "fragginhart_allies_bunker_capture"
+            setstate axis_instmap_fb default
+            setstate allies_instmap_fb invisible
 
         }
     
@@ -104,6 +110,8 @@ Forwardbunker_flag
             // trigger red_fb_light light_toggle
             setautospawn "Axis Spawn" 0
 		    setautospawn "Forward bunker" 1
+            setstate axis_instmap_fb invisible
+            setstate allies_instmap_fb default
             wm_teamvoiceannounce 0 "fragginhart_axis_bunker_captured"
             wm_teamvoiceannounce 1 "fragginhart_allies_bunker_captured"
         }
@@ -248,9 +256,10 @@ Depot_Gate
     trigger dead
     {
 		playsound sound/movers/misc/garage_door_loop_01.wav looping volume 1024
-		gotomarker Depot_Gate_open_pos 50 wait
+		gotomarker Depot_Gate_dead_pos 25 wait
         wm_announce "Depot gate controls disabled."
 		stopsound
+        playsound sound/movers/misc/garage_door_end_01.wav volume 1024
         wait 80
         setstate button_dead_Depot_Gate default
         setstate cov_door_Depot_Gate invisible
@@ -426,7 +435,12 @@ Main_Gate_construct
 		trigger self setup
 		constructible_class	3	// 2=Satchel 3=Dyna
 		setstate Main_Gate_deadplate invisible
-        setstate FirstCovDoor_axisconstruct_n default
+        // setstate FirstCovDoor_axisconstruct_n invisible
+        setstate Main_Gate_construct invisible
+        setstate Main_Gate_deadplate invisible
+        setstate Main_Gate_construct_toi invisible
+        setstate Main_Gate_deadplate invisible
+        setstate main_tunnel_doors invisible
 
 	}
 
@@ -442,6 +456,7 @@ Main_Gate_construct
         setstate Main_Gate_deadplate invisible
         setstate FirstCovDoor_axisconstruct_n default
         alertentity main_tunnel_doors
+        setstate cov_door_Main_Gate invisible
 	}
 
 	decayed final
