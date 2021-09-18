@@ -26,29 +26,6 @@ game_manager
 	}
 }
 
-// red_fb_light
-// {
-//     spawn
-//         {
-//         }
-//     trigger light_toggle
-//     {
-//         alertentity red_fb_light
-//     }
-// }
-// 
-// blue_fb_light
-// {
-//     spawn
-//         {
-//         }
-//     trigger light_toggle
-//     {
-//         alertentity blue_fb_light
-//     }
-// }
-
-
 // forward flag
 Forwardbunker_flag 	 
 {
@@ -63,11 +40,6 @@ Forwardbunker_flag
             //flag vo allied
             wm_addteamvoiceannounce 1 "fragginhart_allies_bunker_capture"
             wm_teamvoiceannounce 1 "fragginhart_allies_bunker_capture"
-            // trigger blue_fb_light light_toggle
-            // trigger red_fb_light light_toggle
-            wait 500
-            setstate axis_instmap_fb default
-            setstate allies_instmap_fb invisible
 
         }
     
@@ -78,14 +50,10 @@ Forwardbunker_flag
             accum 0 set 0 // Axis own the flag
             wm_announce "Axis have captured the forward bunker!"
             setstate Forwardbunker_wobj default
-            // trigger blue_fb_light light_toggle
-            // trigger red_fb_light light_toggle
             setautospawn "Forward bunker" 0
 		    setautospawn "Allied Spawn" 1
             wm_teamvoiceannounce 0 "fragginhart_axis_bunker_stop"
             wm_teamvoiceannounce 1 "fragginhart_allies_bunker_capture"
-            setstate axis_instmap_fb default
-            setstate allies_instmap_fb invisible
 
         }
     
@@ -94,8 +62,6 @@ Forwardbunker_flag
             wm_teamvoiceannounce 0 "fragginhart_axis_bunker_reclaimed"
             wm_teamvoiceannounce 1 "fragginhart_allies_bunker_reclaimed"
             alertentity Forwardbunker_wobj // Switch command map marker
-            // trigger blue_fb_light light_toggle
-            // trigger red_fb_light light_toggle
             setautospawn "Forward bunker" 0
 		    setautospawn "Allied Spawn" 1
         }
@@ -110,8 +76,6 @@ Forwardbunker_flag
             // trigger red_fb_light light_toggle
             setautospawn "Axis Spawn" 0
 		    setautospawn "Forward bunker" 1
-            setstate axis_instmap_fb invisible
-            setstate allies_instmap_fb default
             wm_teamvoiceannounce 0 "fragginhart_axis_bunker_captured"
             wm_teamvoiceannounce 1 "fragginhart_allies_bunker_captured"
         }
@@ -120,8 +84,6 @@ Forwardbunker_flag
         {
             wm_teamvoiceannounce 0 "fragginhart_axis_bunker_captured"
             wm_teamvoiceannounce 1 "fragginhart_allies_bunker_captured"
-            // trigger blue_fb_light light_toggle
-            // trigger red_fb_light light_toggle
             setautospawn "Axis Spawn" 0
 		    setautospawn "Forward bunker" 1
         }
@@ -200,6 +162,7 @@ move_Depot_Gate
 {
 	spawn
 	{
+        wait 50
         setstate button_dead_Depot_Gate invisible
         setstate button2_Depot_Gate invisible
         setstate button1_Depot_Gate default
@@ -221,16 +184,16 @@ move_Depot_Gate
     trigger dead_action_Depot_Gate
 	{	
 		trigger Depot_Gate dead
-        trigger Forwardbunker_flag allied_capture
-        setstate Forwardbunker_flag invisible
+        //trigger Forwardbunker_flag allied_capture
+        //setstate Forwardbunker_flag invisible
         //wait 11000
 	}
 	
     trigger alive_action_Depot_Gate
     {
        trigger Depot_Gate alive
-       setstate Forwardbunker_flag default
-       trigger Forwardbunker_flag axis_capture
+       //setstate Forwardbunker_flag default
+       //trigger Forwardbunker_flag axis_capture
     }
 }
 
@@ -256,7 +219,7 @@ Depot_Gate
     trigger dead
     {
 		playsound sound/movers/misc/garage_door_loop_01.wav looping volume 1024
-		gotomarker Depot_Gate_dead_pos 25 wait
+		gotomarker Depot_Gate_dead_pos 50 wait
         wm_announce "Depot gate controls disabled."
 		stopsound
         playsound sound/movers/misc/garage_door_end_01.wav volume 1024
@@ -339,7 +302,8 @@ Depot_Gate_construct
 move_Main_Gate
 {
 	spawn
-	{
+	{ 
+        wait 50
         setstate button_dead_Main_Gate invisible
         setstate button2_Main_Gate invisible
         setstate button1_Main_Gate default
@@ -435,6 +399,8 @@ Main_Gate_construct
 		trigger self setup
 		constructible_class	3	// 2=Satchel 3=Dyna
 		setstate Main_Gate_deadplate invisible
+        setstate FirstCovDoor_axisconstruct_n default
+        setstate Main_Gate_deadplate invisible
         // setstate FirstCovDoor_axisconstruct_n invisible
         setstate Main_Gate_construct invisible
         setstate Main_Gate_deadplate invisible
@@ -456,7 +422,6 @@ Main_Gate_construct
         setstate Main_Gate_deadplate invisible
         setstate FirstCovDoor_axisconstruct_n default
         alertentity main_tunnel_doors
-        setstate cov_door_Main_Gate invisible
 	}
 
 	decayed final
