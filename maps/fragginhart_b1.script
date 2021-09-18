@@ -32,8 +32,9 @@ Forwardbunker_flag
     spawn   
         {
             accum 0 set 2 // Who owns flag: 0-Axis, 1-Allied, 2-Nobody
-            setstate Forwardbunker_wobj invisible
-            // setstate Forwardbunker_wobj default
+            wait 50
+            setstate map_inst_axis default
+            setstate map_inst_allies invisible
             //flag vo axis 
             wm_addteamvoiceannounce 0 "fragginhart_axis_bunker_stop" 
 	        wm_teamvoiceannounce 0 "fragginhart_axis_bunker_stop"
@@ -49,12 +50,12 @@ Forwardbunker_flag
             accum 0 trigger_if_equal 1 Forwardbunker_flag axis_reclaim // Reclaimed from Allies
             accum 0 set 0 // Axis own the flag
             wm_announce "Axis have captured the forward bunker!"
-            setstate Forwardbunker_wobj default
             setautospawn "Forward bunker" 0
 		    setautospawn "Allied Spawn" 1
             wm_teamvoiceannounce 0 "fragginhart_axis_bunker_stop"
             wm_teamvoiceannounce 1 "fragginhart_allies_bunker_capture"
-
+            setstate map_inst_axis default
+            setstate map_inst_allies invisible
         }
     
     trigger axis_reclaim 
@@ -72,12 +73,12 @@ Forwardbunker_flag
             accum 0 set 1 // Allied own the flag
             wm_announce "Allies have captured the forward bunker!" 
             alertentity Forwardbunker_wobj // Switch command map marker 
-            // trigger blue_fb_light light_toggle
-            // trigger red_fb_light light_toggle
             setautospawn "Axis Spawn" 0
 		    setautospawn "Forward bunker" 1
             wm_teamvoiceannounce 0 "fragginhart_axis_bunker_captured"
             wm_teamvoiceannounce 1 "fragginhart_allies_bunker_captured"
+            setstate map_inst_axis invisible
+            setstate map_inst_allies default
         }
     
     trigger allied_reclaim 
@@ -86,6 +87,21 @@ Forwardbunker_flag
             wm_teamvoiceannounce 1 "fragginhart_allies_bunker_captured"
             setautospawn "Axis Spawn" 0
 		    setautospawn "Forward bunker" 1
+        }
+        
+     trigger disabled  //allies own perm
+        {
+            setstate Forwardbunker_flag invisible
+            accum 0 abort_if_equal 1 // do Allies own flag?
+            trigger Forwardbunker_flag allied_capture
+            alertentity Forwardbunker_spawns
+        }
+    trigger enabled //flag is up for grabs
+        {
+            setstate Forwardbunker_flag default
+            accum 0 abort_if_equal 0 // do Axis own flag?
+            trigger Forwardbunker_flag axis_capture
+            alertentity Forwardbunker_spawns
         }
 }
 
@@ -184,16 +200,14 @@ move_Depot_Gate
     trigger dead_action_Depot_Gate
 	{	
 		trigger Depot_Gate dead
-        //trigger Forwardbunker_flag allied_capture
-        //setstate Forwardbunker_flag invisible
+        trigger Forwardbunker_flag disabled
         //wait 11000
 	}
 	
     trigger alive_action_Depot_Gate
     {
        trigger Depot_Gate alive
-       //setstate Forwardbunker_flag default
-       //trigger Forwardbunker_flag axis_capture
+       trigger Forwardbunker_flag enabled
     }
 }
 
